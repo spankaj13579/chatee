@@ -1,10 +1,10 @@
 import React from "react";
 import Logo from "../../../components/Logo";
 import { Link } from "react-router-dom";
-import loginIllustration from "../../../images/auth/chat-login.svg";
+import SignupIllustration from "../../../images/auth/chat-signup.svg";
 import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
 
-function Login() {
+function Signup() {
   return (
     <div className="border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark h-screen">
       <div className="flex flex-wrap items-center h-full">
@@ -14,13 +14,13 @@ function Login() {
               <Logo />
             </Link>
             <p className="2xl:px-20 ">
-              Hey🫰, Welcome back. Login to your Secure chatbox
+              Join Potatochat and make secure connections
             </p>
             <span className="mt-15 inline-block">
               <img
-                src={loginIllustration}
+                src={SignupIllustration}
                 alt="Login"
-                className="h-115 w-auto object-cover object-center"
+                className="w-64 h-auto object-cover object-center"
               />
             </span>
           </div>
@@ -29,11 +29,31 @@ function Login() {
           <div className="w-full p-4 sm:p-12 xl:p-17.5">
             <span className="mb-1.5 block font-medium">Start for free</span>
             <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-              Signin to Potatochat
+              Signup with Potatochat
             </h2>
 
             <form action="">
               <div className="mb-4 ">
+                <label
+                  htmlFor=""
+                  className="mb-2.5 block font-medium text-black dark:text-white"
+                >
+                  Name
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Enter your full name"
+                    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  />
+                  <span className="absolute right-4 top-4">
+                    <user size={24} />
+                  </span>
+                </div>
+              </div>
+              <div className="mb-6 ">
                 <label
                   htmlFor=""
                   className="mb-2.5 block font-medium text-black dark:text-white"
@@ -53,7 +73,7 @@ function Login() {
                   </span>
                 </div>
               </div>
-              <div className="mb-6 ">
+              <div className="mb-4 ">
                 <label
                   htmlFor=""
                   className="mb-2.5 block font-medium text-black dark:text-white"
@@ -65,7 +85,27 @@ function Login() {
                     type="password"
                     name=""
                     id=""
-                    placeholder="6+ Characters, 1 Capital Letter"
+                    placeholder="Enter your password"
+                    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  />
+                  <span className="absolute right-4 top-4">
+                    <Lock size={24} />
+                  </span>
+                </div>
+              </div>
+              <div className="mb-6 ">
+                <label
+                  htmlFor=""
+                  className="mb-2.5 block font-medium text-black dark:text-white"
+                >
+                  Re-type Password
+                </label>
+                <div className="relative">
+                  <input
+                    type="password"
+                    name=""
+                    id=""
+                    placeholder="Re-type your password"
                     className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                   <span className="absolute right-4 top-4">
@@ -76,7 +116,7 @@ function Login() {
               <div className="mb-5 ">
                 <input
                   type="submit"
-                  value="Sign in"
+                  value="Create account"
                   className="w-full cursor-pointer border border-primary bg-primary p-4 rounded-lg text-white transition hover:bg-opacity-90"
                 />
               </div>
@@ -114,10 +154,17 @@ function Login() {
                     </defs>
                   </svg>
                 </span>
-                Sign in with Google
+                Sign up with Google
               </button>
               <div className="mt-6 text-center">
-                <p> Dont have any account? <Link to='/auth/signup' className="text-primary"> Sign up</Link></p>
+                <p>
+                  {" "}
+                  Already have an account{" "}
+                  <Link to="/auth/login" className="text-primary">
+                    {" "}
+                    Log in
+                  </Link>
+                </p>
               </div>
             </form>
           </div>
@@ -127,4 +174,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
