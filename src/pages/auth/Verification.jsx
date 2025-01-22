@@ -19,7 +19,7 @@ function Verification() {
                 <p className="mb-7.5 font-medium ">Enter the 6 digit code send to registered email id.</p>
                 <form action="">
                     <div className="flex items-center gap-4.5 ">
-                        {Array.from({length: 4}).map((_, index)=> (<input type="text" key={index} className="w-full rounded-md border-[1.5px] border-stroke bg-transparent px-5 py-3 text-center text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>))}
+                        {Array.from({length: 4},(_, index)=> (<input type="text" key={index} className="w-full rounded-md border-[1.5px] border-stroke bg-transparent px-5 py-3 text-center text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>))}
                     </div>
                     <p className="mb-5 mt-4 text-left font-medium text-black dark:text-white space-x-2 flex flex-row items-center">
                         <div>Did not recieve a code? </div>
