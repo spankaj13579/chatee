@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "../../../components/Logo";
+import Logo from "../../components/Logo";
 import { Link } from "react-router-dom";
-import SignupIllustration from "../../../images/auth/chat-signup.svg";
+import SignupIllustration from "../../images/auth/chat-signup.svg";
 import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
 
 function Signup() {
