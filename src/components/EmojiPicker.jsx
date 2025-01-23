@@ -24,7 +24,7 @@ function EmojiPicker() {
         document.removeEventListener('mousedown', handleClickOutside);
     };
   },[])
-
+ 
   const handleTrigger = (e) => {
     e.preventDefault();
     setPickerOpen((prev) => !prev);
