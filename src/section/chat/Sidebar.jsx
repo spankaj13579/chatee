@@ -1,6 +1,29 @@
-import { Chat, SignOut } from '@phosphor-icons/react'
+import { Chat, DotsThreeCircle, SignOut, User, UserCircle } from '@phosphor-icons/react'
 import React from 'react'
 import DarkModeSwitcher from '../../components/DarkModeSwitcher'
+
+const NAVIGATION = [
+  {
+    Key: 0,
+    title: 'DMs',
+    icon: <Chat size={24}/>
+  },
+  {
+    Key: 1,
+    title: 'Groups',
+    icon: <User size={24}/>
+  },
+  {
+    Key: 2,
+    title: 'Profile',
+    icon: <UserCircle size={24}/>
+  },
+  {
+    Key: 3,
+    title: 'More',
+    icon: <DotsThreeCircle size={24}/>
+  }
+];
 
 function Sidebar() {
   return (
