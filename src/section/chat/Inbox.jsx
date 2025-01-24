@@ -21,7 +21,7 @@ function Inbox() {
         className={`flex h-full flex-col border-l border-stroke dark:border-strokedark ${
           userInfoOpen ? "xl:w-1/2" : "xl:w-3/4"
         }`}
-      >
+      > 
         {/* header */}
         <div className="sticky flex items-center flex-row justify-between border-b border-stroke dark:border-strokedark px-6 py-4.5">
           <div className="flex items-center ">
