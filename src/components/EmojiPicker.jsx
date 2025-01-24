@@ -7,6 +7,7 @@ function EmojiPicker() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const pickerRef = useRef(null);
   const buttonRef = useRef(null);
+  const colorMode = JSON.parse(window.localStorage.getItem("color-theme"));
 
   useEffect(()=>{
     const handleClickOutside = (event) => {
@@ -40,7 +41,7 @@ function EmojiPicker() {
       </button>
       {pickerOpen && (
         <div className="absolute z-40 -top-115 right-0 ">
-          <Picker data={data} />
+          <Picker data={data} theme={colorMode} />
         </div>
       )}
     </div>
