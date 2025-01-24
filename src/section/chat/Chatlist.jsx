@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
-import React from "react";
+import React, { useState } from "react";
 
 import User01 from "../../images/user/user-01.png";
 import User02 from "../../images/user/user-02.png";
@@ -54,6 +54,10 @@ const List = [
 ];
 
 function Chatlist() {
+  const [selected, setSelected] = useState(0);
+  const handleClick = (key) => {
+    setSelected(key);
+  };
   return (
     <div className="hidden h-full flex-col xl:flex xl:w-1/4">
       {/* conversation heading */}
@@ -84,8 +88,13 @@ function Chatlist() {
           {List.map((object, item) => {
             return (
               <div
-                className="flex cursor-pointer items-center rounded px-4 py-2 hover:bg-gray-2 dark:hover:bg-strokedark"
+                className={`flex cursor-pointer items-center rounded px-4 py-2 dark:hover:bg-strokedark ${
+                  selected === item ? "bg-gray dark:bg-boxdark-2" : "hover:bg-gray-2 dark:hover:bg-boxdark-2/90"
+                }`}
                 key={item}
+                onClick={() => {
+                  handleClick(item);
+                }}
               >
                 {/* image container */}
                 <div className="relative mr-3.5 w-full h-11 max-w-11 rounded-full ">
@@ -98,12 +107,10 @@ function Chatlist() {
                 </div>
                 {/* user name and desc*/}
                 <div className="w-full ">
-                    <h5 className="text-sm font-medium text-black dark:text-white">
-                        {object.name}
-                    </h5>
-                    <p className="text-sm">
-                        {object.message}
-                    </p>
+                  <h5 className="text-sm font-medium text-black dark:text-white">
+                    {object.name}
+                  </h5>
+                  <p className="text-sm">{object.message}</p>
                 </div>
               </div>
             );
