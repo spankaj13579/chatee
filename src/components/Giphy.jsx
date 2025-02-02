@@ -45,6 +45,13 @@ function Giphy() {
     };
     fetchInitialGifs();
   }, []);
+
+  const handleGifClick = (gif, e) => {
+    e.preventDefault();
+    const gifUrl = gif.images.original.url;
+    console.log(gifUrl)
+  }
+
   return (
     <div ref={gridRef} className="w-full mt-3">
       <input
@@ -67,7 +74,7 @@ function Giphy() {
           gutter={6}
           fetchGifs={fetchGifs}
           key={value}
-          onGifClick={() => {}}
+          onGifClick={handleGifClick}
           data={gifs}
         />
       </div>
