@@ -14,6 +14,21 @@ function Giphy() {
   const fetchGifs = async (offset) => {
     return gf.search(value, { offset, limit: 10 });
   };
+
+  const deboundedFetchGifs = _.debounce(async()=>{
+    setisLoading(true);
+    setError(null);
+    try {
+      const newGifs = await fetchGifs(0);
+      setGifs([newGifs.data]);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setisLoading(false);
+    }
+
+  },500) //500ms is debounce time
+  
   useEffect(() => {
     // fetch gif initially based on search term
     const fetchInitialGifs = async () => {
@@ -23,7 +38,7 @@ function Giphy() {
         const initialGif = await fetchGifs(0);
         setGifs([initialGif.data]);
       } catch (err) {
-        setError(err);
+        setError(err.message);
       } finally {
         setisLoading(false);
       }
@@ -39,7 +54,9 @@ function Giphy() {
         placeholder="Search GIF"
         className="border border-stroke rounded-md w-full p-2 mb-2 outline-none dark:border-strokedark"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => {setValue(e.target.value);
+          deboundedFetchGifs();}
+        }
       />
       {isLoading && <p>Loading GIFs...</p>}
       {error && <p className="text-red">Error: {error}</p>}
