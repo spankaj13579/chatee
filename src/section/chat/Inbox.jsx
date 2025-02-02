@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import user01 from "../../images/user/user-01.png";
 import {
+  Gift,
   LinkSimple,
   PaperPlaneTilt,
   Phone,
@@ -9,9 +10,16 @@ import {
 import Dropdown from "../../components/Dropdown";
 import EmojiPicker from "../../components/EmojiPicker";
 import UserInfo from "./UserInfo";
+import Giphy from "../../components/Giphy";
 
 function Inbox() {
   const [userInfoOpen, setUserInfoOpen] = useState(false);
+  const [gifOpen, setGifOpen] = useState(false);
+  
+  const handletoggleGif = (e)=>{
+    e.preventDefault();
+    setGifOpen((prev)=> !prev);
+  }
   const handleToggleUserInfo = () => {
     setUserInfoOpen((prev) => !prev);
   };
@@ -21,7 +29,7 @@ function Inbox() {
         className={`flex h-full flex-col border-l border-stroke dark:border-strokedark ${
           userInfoOpen ? "xl:w-1/2" : "xl:w-3/4"
         }`}
-      >
+      > 
         {/* header */}
         <div className="sticky flex items-center flex-row justify-between border-b border-stroke dark:border-strokedark px-6 py-4.5">
           <div className="flex items-center ">
@@ -189,6 +197,9 @@ function Inbox() {
                 <button className="hover:text-primary">
                   <LinkSimple size={20} />
                 </button>
+                <button className="hover:text-primary" onClick={handletoggleGif}>
+                  <Gift size={20} />
+                </button>
                 <button className="hover:text-primary">
                   <EmojiPicker />
                 </button>
@@ -199,6 +210,7 @@ function Inbox() {
               <PaperPlaneTilt size={24} weight="bold" />
             </button>
           </form>
+          {gifOpen && <Giphy />}
         </div>
       </div>
       {userInfoOpen && (
